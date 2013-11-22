@@ -15,6 +15,7 @@ module.exports = function (platform) {
       keys: keys,
       init: init,
       clear: clear,
+      saveTag: saveTag
     };
 
     function get(key, callback) {
