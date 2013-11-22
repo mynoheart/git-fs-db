@@ -54,6 +54,13 @@ module.exports = function (platform) {
       return unlink(key, callback);
     }
 
+    function saveTag(name, hash, callback) {
+      fs.write('refs/tags/' + name, hash)(function (err) {
+        if (err) return callback(err);
+        return callback(null, hash);
+      });
+    }
+
     function unlink(path, callback) {
       fs.unlink(path, function (err) {
         if (err) return callback(err);
